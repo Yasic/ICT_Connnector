@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ict_connector</title>
+    <script type="text/javascript" src="http://159.226.39.22/lib/md5.js"></script>
+    <!--<script type="text/javascript" src="MD5.js"></script>-->
+    <script type="text/javascript" src="ict_connector.js"></script>
+</head>
+<body >
+<div style="width: 100%;">
+    <div style="text-align: center">
+        <h4 style="background: #ffff00;color: #ff0000">DO NOT CLOSE ME!</h4>
+    </div>
+    <div style="text-align: center">
+        <h2>Once Connect, Online Forever</h2>
+    </div>
+    <div style="margin-left: auto;margin-right: auto;width: 120px;">
+        <img id="check_internet_img" src="asset/image/blue_cross_128px.png" style="width: 120px;height: 120px;border-radius: 50%;">
+    </div>
+    <div id="warning" style="text-align: center;color:#ff0000;">
+        <strong>You are offline if you see this sentence.</strong>
+    </div>
+    <form style="width: 320px;margin-left: auto;margin-right: auto" name="form1" onsubmit="do_login();return false;" method="post" action="http://159.226.39.22/cgi-bin/do_login">
+        <div>
+        <div style="float: left;width: 100px;padding-top: 2px">
+            username
+        </div>
+        <div style="float: left;margin-left: 12px;">
+            <input style="height: 22px;width: 200px" name="uname" id="username" type="text">
+        </div>
+        </div>
+        <br>
+        <div>
+        <div style="float: left;width: 100px;padding-top: 5px">password</div>
+        <div style="float: left;margin-left: 12px">
+            <input style="width: 200px;height:22px" name="pass" id="password" type="password">
+        </div>
+        </div>
+        <div>
+            <button id="login_button" style="width: 315px;height:32px;border: solid #3399ff 1px" type="button" onclick="do_login()">login</button>
+            <div style="width: 315px;height:32px;border: solid #3399ff 1px;text-align: center;visibility: hidden" id="online_ready">Online Ready</div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
