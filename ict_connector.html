@@ -18,28 +18,41 @@
     <div style="margin-left: auto;margin-right: auto;width: 120px;">
         <img id="check_internet_img" src="asset/image/blue_cross_128px.png" style="width: 120px;height: 120px;border-radius: 50%;">
     </div>
-    <div id="warning" style="text-align: center;color:#ff0000;">
-        <strong>You are offline if you see this sentence.</strong>
+    <div id="warning" style="text-align: center;color:#0071bc;">
+        <strong>OFFLINE</strong>
+    </div>
+    <div id="presenter" style="text-align: center;color:#0071bc;display: none">
+        <strong>ONLINE</strong>
     </div>
     <form style="width: 320px;margin-left: auto;margin-right: auto" name="form1" onsubmit="do_login();return false;" method="post" action="http://159.226.39.22/cgi-bin/do_login">
-        <div>
-        <div style="float: left;width: 100px;padding-top: 2px">
-            username
-        </div>
-        <div style="float: left;margin-left: 12px;">
-            <input style="height: 22px;width: 200px" name="uname" id="username" type="text">
-        </div>
+        <div id="username_div">
+            <div style="float: left;width: 100px">
+                <div style="padding-top: 2px">
+                    username
+                </div>
+            </div>
+            <div style="float: left;width: 150px;margin-left: 15px">
+                <div>
+                    <input style="height: 22px;width: 200px" name="uname" id="username" type="text">
+                </div>
+            </div>
         </div>
         <br>
-        <div>
-        <div style="float: left;width: 100px;padding-top: 5px">password</div>
-        <div style="float: left;margin-left: 12px">
-            <input style="width: 200px;height:22px" name="pass" id="password" type="password">
+        <div id="password_div">
+            <div style="float: left;width: 100px">
+                <div style="padding-top: 2px">password</div>
+            </div>
+            <div style="float: left;width: 150px;margin-left: 15px">
+                <div>
+                    <input style="width: 200px;height:22px" name="pass" id="password" type="password">
+                </div>
+            </div>
         </div>
-        </div>
+        <br>
+        <br>
         <div>
-            <button id="login_button" style="width: 315px;height:32px;border: solid #3399ff 1px" type="button" onclick="do_login()">login</button>
-            <div style="width: 315px;height:32px;border: solid #3399ff 1px;text-align: center;visibility: hidden" id="online_ready">Online Ready</div>
+            <div id="login_button" style="cursor: pointer;background: #f7f8f3;width: 315px;height:32px;border:solid #0071bc 2px;text-align: center"  onclick="do_login()">Run</div>
+            <div style="background: #999999;width: 315px;height:32px;text-align: center;border:solid #0071bc 2px;visibility: hidden" id="online_ready">Running...</div>
         </div>
     </form>
 </div>

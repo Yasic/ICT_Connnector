@@ -18,13 +18,15 @@ function check_internet_status(){
     flag_img.onload = function () {
         is_online = true;
         document.getElementById("check_internet_img").setAttribute("src", flag_img.src);
-        document.getElementById("warning").style.visibility = "hidden"
+        document.getElementById("warning").style.display = "none"
+        document.getElementById("presenter").style.display = "block"
     };
     flag_img.onerror = function (){
         is_online = false;
         console.log("Offline! Ready for login...")
         document.getElementById("check_internet_img").setAttribute("src", "asset/image/blue_cross_128px.png");
-        document.getElementById("warning").style.visibility = "visible";
+        document.getElementById("warning").style.display = "block";
+        document.getElementById("presenter").style.display = "none"
     };
     flag_img.src = "https://yasicyu.com/static/Images/blue_ok_128px.png?random=" + Math.random();
     setTimeout("check_internet_status()", 10000);
@@ -146,26 +148,41 @@ function show_error_info() {
 
 var check_flag = 0;
 function do_login() {
+    user_name = document.form1.uname.value;
+    password = document.form1.pass.value;
+
+    check_flag = check_input();
+    if (check_flag != 0){
+        document.getElementById("login_button").style.display = "block";
+        document.getElementById("username_div").style.display = "block";
+        document.getElementById("password_div").style.display = "block";
+        document.getElementById("online_ready").style.visibility = "hidden";
+        return;
+    }
+
     if (is_online) {
-        //nothing to do
+        document.getElementById("login_button").style.display = "none";
+        document.getElementById("username_div").style.display = "none";
+        document.getElementById("password_div").style.display = "none";
+        document.getElementById("online_ready").style.visibility = "visible";
     }
     else {
-        user_name = document.form1.uname.value;
-        password = document.form1.pass.value;
 
-        check_flag = check_input();
-        if (check_flag != 0){
-            return;
-        }
+        document.getElementById("login_button").style.display = "none";
+        document.getElementById("username_div").style.display = "none";
+        document.getElementById("password_div").style.display = "none";
+        document.getElementById("online_ready").style.visibility = "visible";
 
         post_result = do_post_data();
         temp_reg = /^[\d]+$/;
         if (temp_reg.test(post_result)) { //login successful
             console.log("Login successful!");
-            document.getElementById("login_button").style.visibility = "hidden";
-            document.getElementById("online_ready").style.visibility = "visible";
         } else { //show error info
             show_error_info();
+            document.getElementById("login_button").style.display = "block";
+            document.getElementById("username_div").style.display = "block";
+            document.getElementById("password_div").style.display = "block";
+            document.getElementById("online_ready").style.visibility = "hidden";
         }
     }
     setTimeout("do_login()", 1000);
