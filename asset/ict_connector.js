@@ -28,7 +28,7 @@ function check_internet_status(){
         document.getElementById("warning").style.display = "block";
         document.getElementById("presenter").style.display = "none"
     };
-    flag_img.src = "https://yasicyu.com/static/Images/blue_ok_128px.png?random=" + Math.random();
+    flag_img.src = "https://diycode.b0.upaiyun.com/photo/2017/c9340a81a6287cad28e9ad1befc124e0.png?random=" + Math.random();
     setTimeout("check_internet_status()", 10000);
 }
 
@@ -156,23 +156,18 @@ function do_login() {
         document.getElementById("login_button").style.display = "block";
         document.getElementById("username_div").style.display = "block";
         document.getElementById("password_div").style.display = "block";
-        document.getElementById("online_ready").style.visibility = "hidden";
+        document.getElementById("running_outside_div").style.display = "none";
         return;
     }
 
+    document.getElementById("login_button").style.display = "none";
+    document.getElementById("username_div").style.display = "none";
+    document.getElementById("password_div").style.display = "none";
+    document.getElementById("running_outside_div").style.display = "block";
+
     if (is_online) {
-        document.getElementById("login_button").style.display = "none";
-        document.getElementById("username_div").style.display = "none";
-        document.getElementById("password_div").style.display = "none";
-        document.getElementById("online_ready").style.visibility = "visible";
     }
     else {
-
-        document.getElementById("login_button").style.display = "none";
-        document.getElementById("username_div").style.display = "none";
-        document.getElementById("password_div").style.display = "none";
-        document.getElementById("online_ready").style.visibility = "visible";
-
         post_result = do_post_data();
         temp_reg = /^[\d]+$/;
         if (temp_reg.test(post_result)) { //login successful
@@ -182,7 +177,7 @@ function do_login() {
             document.getElementById("login_button").style.display = "block";
             document.getElementById("username_div").style.display = "block";
             document.getElementById("password_div").style.display = "block";
-            document.getElementById("online_ready").style.visibility = "hidden";
+            document.getElementById("running_outside_div").style.display = "none";
         }
     }
     setTimeout("do_login()", 1000);

@@ -4,55 +4,62 @@
     <meta charset="UTF-8">
     <title>ict_connector</title>
     <script type="text/javascript" src="http://159.226.39.22/lib/md5.js"></script>
+    <link rel="stylesheet" href="asset/ict_connector.css">
     <!--<script type="text/javascript" src="MD5.js"></script>-->
-    <script type="text/javascript" src="ict_connector.js"></script>
+    <script type="text/javascript" src="asset/ict_connector.js"></script>
 </head>
 <body >
-<div style="width: 100%;">
-    <div style="text-align: center">
-        <h4 style="background: #ffff00;color: #ff0000">DO NOT CLOSE ME!</h4>
+<div>
+    <div id="slogan">
+        <h1 style="">DO NOT CLOSE ME</h1>
     </div>
-    <div style="text-align: center">
-        <h2>Once Connect, Online Forever</h2>
+    <div id="presenter_img">
+        <img id="check_internet_img" src="asset/image/blue_cross_128px.png" >
     </div>
-    <div style="margin-left: auto;margin-right: auto;width: 120px;">
-        <img id="check_internet_img" src="asset/image/blue_cross_128px.png" style="width: 120px;height: 120px;border-radius: 50%;">
+    <div class="normal_text" id="warning">
+        <h6><strong>OFFLINE</strong></h6>
     </div>
-    <div id="warning" style="text-align: center;color:#0071bc;">
-        <strong>OFFLINE</strong>
+    <div class="normal_text" id="presenter" style="display: none">
+        <h4><strong>ONLINE</strong></h4>
     </div>
-    <div id="presenter" style="text-align: center;color:#0071bc;display: none">
-        <strong>ONLINE</strong>
+    <div class="normal_text">
+        <h6>Once Connect, Online Forever</h6>
     </div>
-    <form style="width: 320px;margin-left: auto;margin-right: auto" name="form1" onsubmit="do_login();return false;" method="post" action="http://159.226.39.22/cgi-bin/do_login">
-        <div id="username_div">
-            <div style="float: left;width: 100px">
+    <form id="main_form" name="form1" onsubmit="do_login();return false;" method="post" action="http://159.226.39.22/cgi-bin/do_login">
+        <div class="outside_div" id="username_div" >
+            <div class="inside_div_left">
                 <div style="padding-top: 2px">
                     username
                 </div>
             </div>
-            <div style="float: left;width: 150px;margin-left: 15px">
+            <div class="inside_div_right">
                 <div>
-                    <input style="height: 22px;width: 200px" name="uname" id="username" type="text">
+                    <input class="input"  name="uname" id="username" type="text">
                 </div>
             </div>
         </div>
-        <br>
-        <div id="password_div">
-            <div style="float: left;width: 100px">
+        <div class="outside_div" id="password_div">
+            <div class="inside_div_left">
                 <div style="padding-top: 2px">password</div>
             </div>
-            <div style="float: left;width: 150px;margin-left: 15px">
+            <div class="inside_div_right">
                 <div>
-                    <input style="width: 200px;height:22px" name="pass" id="password" type="password">
+                    <input class="input" name="pass" id="password" type="password">
                 </div>
             </div>
         </div>
-        <br>
-        <br>
         <div>
-            <div id="login_button" style="cursor: pointer;background: #f7f8f3;width: 315px;height:32px;border:solid #0071bc 2px;text-align: center"  onclick="do_login()">Run</div>
-            <div style="background: #999999;width: 315px;height:32px;text-align: center;border:solid #0071bc 2px;visibility: hidden" id="online_ready">Running...</div>
+            <div id="login_button"  onclick="do_login()"><strong>Run</strong></div>
+            <div id="running_outside_div" style="display: none">
+                <div id="running_div"><strong>Running...</strong></div>
+            </div>
+        </div>
+        <div>
+            <p>使用说明：</p>
+            <p>1. 输入账号密码后点击“Run”，不要关闭页面</p>
+            <p>2. 网页每30秒钟检测一次联网情况，故断网后至多30秒会触发自动登录</p>
+            <p>3. 此网页不存cookie，不保存密码，也不会外传登录信息，请放心使用</p>
+            <p>4. 有问题就刷新或重启页面</p>
         </div>
     </form>
 </div>

@@ -1,0 +1,87 @@
+body,h1,h2,h3,h4,h5,h6{
+    margin: 0;
+    padding: 0;
+}
+
+#slogan {
+    background: #ffff00;
+    color: #ff6666;
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+#presenter_img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 120px;
+}
+
+#check_internet_img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+#main_form{
+    width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#login_button{
+    color:#ff6666;
+    cursor: pointer;
+    background: #ffff00;
+    width: 375px;
+    height:32px;
+    text-align: center;
+}
+
+#login_button:hover{
+    border: solid #0071bc 2px;
+}
+
+#running_outside_div {
+    color:#ffff00;
+    background: #ff6666;
+    width: 375px;
+    height:72px;
+    text-align: center;
+}
+
+#running_div{
+    width:375px;
+    height: auto;
+    clear: both;
+    left:50%;
+    margin-top:20px;
+    margin-left: -187px;
+    position: absolute;
+}
+
+.normal_text {
+    margin-top: 2px;
+    margin-bottom: 3px;
+    text-align: center;
+    color:#0071bc;
+}
+
+.outside_div{
+    height: 40px;
+}
+
+.inside_div_left {
+    float: left;
+    width: 100px;
+}
+
+.inside_div_right{
+    float: left;
+    margin-left: 15px;
+}
+
+.input{
+    height: 22px;
+    width: 255px;
+}
