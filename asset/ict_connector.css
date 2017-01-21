@@ -20,7 +20,9 @@ body,h1,h2,h3,h4,h5,h6{
 #check_internet_img{
     width: 120px;
     height: 120px;
+    margin-top: 12px;
     border-radius: 50%;
+    border: solid #0071bc 1px;
 }
 
 #main_form{
