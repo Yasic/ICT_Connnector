@@ -4,8 +4,8 @@ body,h1,h2,h3,h4,h5,h6{
 }
 
 #slogan {
-    background: #ffff00;
-    color: #ff6666;
+    background: #000;
+    color: #f7f8f3;
     text-align: center;
     padding-top: 12px;
     padding-bottom: 12px;
@@ -31,33 +31,41 @@ body,h1,h2,h3,h4,h5,h6{
     margin-right: auto;
 }
 
-#login_button{
-    color:#ff6666;
+#login_div {
+    color:#f7f8f3;
     cursor: pointer;
-    background: #ffff00;
+    background: #000;
     width: 375px;
     height:32px;
+    line-height: 32px;
     text-align: center;
 }
 
-#login_button:hover{
+#login_div:hover{
     border: solid #0071bc 2px;
 }
 
+.login_button {
+    color: #f7f8f3;
+    cursor: pointer;
+    background: #000000;
+    border: 0px;
+}
+
 #running_outside_div {
-    color:#ffff00;
-    background: #ff6666;
     width: 375px;
     height:72px;
+    color: #f7f8f3;
+    background: #ff6666;
     text-align: center;
 }
 
 #running_div{
-    width:375px;
-    height: auto;
+    width: 375px;
+    height: 72px;
+    line-height: 72px;
     clear: both;
     left:50%;
-    margin-top:20px;
     margin-left: -187px;
     position: absolute;
 }

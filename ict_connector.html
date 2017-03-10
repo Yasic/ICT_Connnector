@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>ict_connector</title>
-    <script type="text/javascript" src="http://159.226.39.22/lib/md5.js"></script>
+    <!--<script type="text/javascript" src="http://159.226.39.22/lib/md5.js"></script>-->
     <link rel="stylesheet" href="asset/ict_connector.css">
     <!--<script type="text/javascript" src="MD5.js"></script>-->
     <script type="text/javascript" src="asset/ict_connector.js"></script>
@@ -25,11 +25,12 @@
     <div class="normal_text">
         <h6>Once Connect, Online Forever</h6>
     </div>
-    <form id="main_form" name="form1" onsubmit="do_login();return false;" method="post" action="http://159.226.39.22/cgi-bin/do_login">
+    <form id="main_form" name="form1" onsubmit="iframeDemo();return true;" method="post" action="http://127.0.0.1" target="demo_iframe">
+        <!--action="http://159.226.39.22/cgi-bin/do_login"-->
         <div class="outside_div" id="username_div" >
             <div class="inside_div_left">
                 <div style="padding-top: 2px">
-                    username
+                    Username
                 </div>
             </div>
             <div class="inside_div_right">
@@ -40,7 +41,7 @@
         </div>
         <div class="outside_div" id="password_div">
             <div class="inside_div_left">
-                <div style="padding-top: 2px">password</div>
+                <div style="padding-top: 2px">Password</div>
             </div>
             <div class="inside_div_right">
                 <div>
@@ -50,11 +51,12 @@
         </div>
         <div id="error_info" style="font-style: italic"></div>
         <div>
-            <div id="login_button"  onclick="do_login()"><strong>Run</strong></div>
+            <input id="login_div" class="login_button" type="submit" value="Run">
             <div id="running_outside_div" style="display: none">
                 <div id="running_div"><strong>Running...</strong></div>
             </div>
         </div>
+        <iframe id="demo_iframe" name="demo_iframe" src="ict_connector.html"></iframe>
         <div>
             <p>使用说明：</p>
             <p>1. 输入账号密码后点击“Run”，不要关闭页面</p>

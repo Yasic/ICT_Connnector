@@ -12,6 +12,10 @@ var temp_reg;
 
 window.onload = function(){
     check_internet_status();
+    var iframe = document.getElementById("demo_iframe");
+    iframe.onload = function () {
+        console.log(iframe.contentWindow.location.hash.substring(1));
+    };
 };
 
 function check_internet_status(){
@@ -157,17 +161,18 @@ function do_login() {
 
     check_flag = check_input();
     if (check_flag != 0){
-        document.getElementById("login_button").style.display = "block";
+        document.getElementById("login_div").style.display = "block";
         document.getElementById("username_div").style.display = "block";
         document.getElementById("password_div").style.display = "block";
         document.getElementById("running_outside_div").style.display = "none";
         return;
     }
 
-    document.getElementById("login_button").style.display = "none";
+    document.getElementById("login_div").style.display = "none";
     document.getElementById("username_div").style.display = "none";
     document.getElementById("password_div").style.display = "none";
     document.getElementById("running_outside_div").style.display = "block";
+
 
     if (is_online) {
         present_error_info("")
@@ -180,11 +185,14 @@ function do_login() {
             present_error_info("");
         } else {
             show_error_info();
-            document.getElementById("login_button").style.display = "block";
+            document.getElementById("login_div").style.display = "block";
             document.getElementById("username_div").style.display = "block";
             document.getElementById("password_div").style.display = "block";
             document.getElementById("running_outside_div").style.display = "none";
         }
     }
     setTimeout("do_login()", 1000);
+}
+
+function iframeDemo() {
 }
