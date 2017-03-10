@@ -3,11 +3,16 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>ict_connector</title>
-    <!--<script type="text/javascript" src="http://159.226.39.22/lib/md5.js"></script>-->
+    <script type="text/javascript" src="http://159.226.39.22/lib/md5.js"></script>
     <link rel="stylesheet" href="asset/ict_connector.css">
-    <!--<script type="text/javascript" src="MD5.js"></script>-->
     <script type="text/javascript" src="asset/ict_connector.js"></script>
 </head>
+
+<!--diff-->
+<!--1. head-->
+<!--2. action-->
+<!--3. getRealPass方法-->
+<!--4. is_online参数-->
 <body>
 <div>
     <div id="slogan">
@@ -22,52 +27,54 @@
     <div class="normal_text" id="presenter" style="display: none">
         <h4><strong>ONLINE</strong></h4>
     </div>
-    <div class="normal_text">
-        <h6>Once Connect, Online Forever</h6>
-    </div>
     <div id="main_div">
-        <form id="main_form" name="form1" onsubmit="do_login();return true;" method="post"
-              action="http://127.0.0.1"
-              target="demo_iframe">
-            <!--action="http://159.226.39.22/cgi-bin/do_login"-->
+        <form id="main_form" name="form1" onsubmit="getRealPass();do_login();return true;" method="post"
+        action="http://159.226.39.22/cgi-bin/do_login"
+        target="demo_iframe">
+            <!--action="http://127.0.0.1"-->
 
-            <div class="outside_div" id="username_div">
-                <div class="row">
-                    <div class="col-md-4  col-xs-4">
-                        <div class="inside_div_left">
-                            <div style="padding-top: 2px;width: 200px">
-                                Username
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8 col-xs-8">
-                        <div class="inside_div_right">
-                            <div>
-                                <input class="input" style="width: 480px" name="uname" id="username" type="text">
-                            </div>
+        <div class="outside_div" id="username_div">
+            <div class="row">
+                <div class="col-md-4  col-xs-4">
+                    <div class="inside_div_left">
+                        <div style="padding-top: 2px;width: 200px">
+                            Username
                         </div>
                     </div>
                 </div>
-            </div>
-            <br>
-            <div class="outside_div" id="password_div">
-                <div class="inside_div_left">
-                    <div style="padding-top: 2px">Password</div>
-                </div>
-                <div class="inside_div_right">
-                    <div>
-                        <input class="input" style="width: 480px" name="pass" id="password" type="password">
+                <div class="col-md-8 col-xs-8">
+                    <div class="inside_div_right">
+                        <div>
+                            <input class="input" style="width: 480px" name="username" id="username" type="text">
+                        </div>
                     </div>
                 </div>
             </div>
-            <div id="error_info" style="font-style: italic"></div>
-            <div>
-                <input id="login_div" class="login_button" type="submit" value="Run">
-                <div id="running_outside_div" style="display: none">
-                    <div id="running_div"><strong>Running...</strong></div>
+        </div>
+        <br>
+        <div class="outside_div" id="password_div">
+            <div class="inside_div_left">
+                <div style="padding-top: 2px">Password</div>
+            </div>
+            <div class="inside_div_right">
+                <div>
+                    <input class="input" style="width: 480px" name="password" id="password" type="password">
                 </div>
             </div>
-            <iframe style="width: 600px;height: 400px" id="demo_iframe" name="demo_iframe"></iframe>
+        </div>
+        <div style="display: none">
+            <input type="text" name="drop" value="1">
+            <input type="text" name="type" value="1">
+            <input type="text" name="n" value="100">
+        </div>
+        <div id="error_info" style="font-style: italic"></div>
+        <div>
+            <input id="login_div" class="login_button" type="submit" value="Run">
+            <div id="running_outside_div" style="display: none">
+                <div id="running_div"><strong>Running...</strong></div>
+            </div>
+        </div>
+        <iframe style="width: 600px;height: 400px" id="demo_iframe" name="demo_iframe"></iframe>
         </form>
         <div id="introduction">
             <p>使用说明：</p>
@@ -77,6 +84,9 @@
             <p>4. 此网页不存cookie，不保存密码，也不会外传登录信息，请放心使用</p>
             <p>5. 有问题就刷新后重新登录</p>
         </div>
+    </div>
+    <div class="normal_text">
+        <h6>Once Connect, Online Forever</h6>
     </div>
 </div>
 </body>

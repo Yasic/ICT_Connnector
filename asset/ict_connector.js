@@ -62,16 +62,23 @@ function post_data(theAction, theMethod, theData) {
     return xml_http_request.responseText;
 }
 
-function do_post_data() {
-    //密码md5加密传送
+function getRealPass() {
     temp_pass = hex_md5(password);
+    /*temp_pass = "12345678123456781234567812345678";*/
+    final_pass = temp_pass.substr(8, 16);
+    document.getElementById("password").value = final_pass;
+}
+
+/*function do_post_data() {
+    //密码md5加密传送
+    //temp_pass = hex_md5(password);
     final_pass = temp_pass.substr(8, 16);
     drop = 1;
     data = "username=" + user_name + "&password=" + final_pass + "&drop=" + drop + "&type=1&n=100";
 
     //return "123";
     return post_data("http://159.226.39.22/cgi-bin/do_login", "post", data);
-}
+}*/
 
 function present_error_info(error){
     document.getElementById("error_info").innerHTML = error;
@@ -79,7 +86,6 @@ function present_error_info(error){
 var check_flag = 0;
 var running = false;
 var timer = null;
-var flag = true;
 function do_login() {
     if (running === true){
         clearInterval(timer);
@@ -90,8 +96,8 @@ function do_login() {
         return;
     }
 
-    user_name = document.form1.uname.value;
-    password = document.form1.pass.value;
+    user_name = document.form1.username.value;
+    password = document.form1.password.value;
 
     check_flag = check_input();
     if (check_flag != 0){ //error
@@ -113,7 +119,8 @@ function do_login() {
     }
     else {
         timer = setInterval(function () {
-            document.getElementById("login_div").submit();
+            console.log("123");
+            document.getElementById("main_form").submit();
         }, 1000);
         /*temp_reg = /^[\d]+$/;
         if (temp_reg.test(post_result)) { //login successful
