@@ -10,12 +10,9 @@ var data;
 var post_result;
 var temp_reg;
 
+
 window.onload = function(){
     check_internet_status();
-    var iframe = document.getElementById("demo_iframe");
-    iframe.onload = function () {
-        console.log(iframe.contentWindow.location.hash.substring(1));
-    };
 };
 
 function check_internet_status(){
@@ -79,8 +76,62 @@ function do_post_data() {
 function present_error_info(error){
     document.getElementById("error_info").innerHTML = error;
 }
+var check_flag = 0;
+var running = false;
+var timer = null;
+var flag = true;
+function do_login() {
+    if (running === true){
+        clearInterval(timer);
+        document.getElementById("username_div").style.display = "block";
+        document.getElementById("password_div").style.display = "block";
+        document.getElementById("login_div").value = "Run";
+        running = false;
+        return;
+    }
 
-function show_error_info() {
+    user_name = document.form1.uname.value;
+    password = document.form1.pass.value;
+
+    check_flag = check_input();
+    if (check_flag != 0){ //error
+        document.getElementById("username_div").style.display = "block";
+        document.getElementById("password_div").style.display = "block";
+        document.getElementById("login_div").value = "Run";
+        return;
+    }
+
+
+    document.getElementById("username_div").style.display = "none";
+    document.getElementById("password_div").style.display = "none";
+    document.getElementById("login_div").value = "Stop";
+    running = true;
+
+
+    if (is_online) {
+        present_error_info("")
+    }
+    else {
+        timer = setInterval(function () {
+            document.getElementById("login_div").submit();
+        }, 1000);
+        /*temp_reg = /^[\d]+$/;
+        if (temp_reg.test(post_result)) { //login successful
+            console.log("Login successful!");
+            present_error_info("");
+        } else {
+            show_error_info(post_result);
+            document.getElementById("login_div").style.display = "block";
+            document.getElementById("username_div").style.display = "block";
+            document.getElementById("password_div").style.display = "block";
+            document.getElementById("login_div").value = "Run";
+            return;
+        }*/
+    }
+}
+
+
+function show_error_info(post_result) {
     switch (post_result) {
         case "user_tab_error":
             present_error_info("认证程序未启动");
@@ -152,47 +203,4 @@ function show_error_info() {
             present_error_info("找不到认证服务器");
             break;
     }
-}
-
-var check_flag = 0;
-function do_login() {
-    user_name = document.form1.uname.value;
-    password = document.form1.pass.value;
-
-    check_flag = check_input();
-    if (check_flag != 0){
-        document.getElementById("login_div").style.display = "block";
-        document.getElementById("username_div").style.display = "block";
-        document.getElementById("password_div").style.display = "block";
-        document.getElementById("running_outside_div").style.display = "none";
-        return;
-    }
-
-    document.getElementById("login_div").style.display = "none";
-    document.getElementById("username_div").style.display = "none";
-    document.getElementById("password_div").style.display = "none";
-    document.getElementById("running_outside_div").style.display = "block";
-
-
-    if (is_online) {
-        present_error_info("")
-    }
-    else {
-        post_result = do_post_data();
-        temp_reg = /^[\d]+$/;
-        if (temp_reg.test(post_result)) { //login successful
-            console.log("Login successful!");
-            present_error_info("");
-        } else {
-            show_error_info();
-            document.getElementById("login_div").style.display = "block";
-            document.getElementById("username_div").style.display = "block";
-            document.getElementById("password_div").style.display = "block";
-            document.getElementById("running_outside_div").style.display = "none";
-        }
-    }
-    setTimeout("do_login()", 1000);
-}
-
-function iframeDemo() {
 }

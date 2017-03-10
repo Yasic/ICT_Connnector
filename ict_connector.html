@@ -25,46 +25,59 @@
     <div class="normal_text">
         <h6>Once Connect, Online Forever</h6>
     </div>
-    <form id="main_form" name="form1" onsubmit="iframeDemo();return true;" method="post" action="http://127.0.0.1" target="demo_iframe">
-        <!--action="http://159.226.39.22/cgi-bin/do_login"-->
-        <div class="outside_div" id="username_div" >
-            <div class="inside_div_left">
-                <div style="padding-top: 2px">
-                    Username
+    <div id="main_div">
+        <form id="main_form" name="form1" onsubmit="do_login();return true;" method="post"
+              action="http://127.0.0.1"
+              target="demo_iframe">
+            <!--action="http://159.226.39.22/cgi-bin/do_login"-->
+
+            <div class="outside_div" id="username_div" >
+                <div class="row">
+                    <div class="col-md-4  col-xs-4">
+                        <div class="inside_div_left">
+                            <div style="padding-top: 2px;width: 200px">
+                                Username
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-xs-8">
+                        <div class="inside_div_right">
+                            <div>
+                                <input class="input" style="width: 480px" name="uname" id="username" type="text">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="inside_div_right">
-                <div>
-                    <input class="input"  name="uname" id="username" type="text">
+            <br>
+            <div class="outside_div" id="password_div">
+                <div class="inside_div_left">
+                    <div style="padding-top: 2px">Password</div>
+                </div>
+                <div class="inside_div_right">
+                    <div>
+                        <input class="input" style="width: 480px" name="pass" id="password" type="password">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="outside_div" id="password_div">
-            <div class="inside_div_left">
-                <div style="padding-top: 2px">Password</div>
-            </div>
-            <div class="inside_div_right">
-                <div>
-                    <input class="input" name="pass" id="password" type="password">
+            <div id="error_info" style="font-style: italic"></div>
+            <div>
+                <input id="login_div" class="login_button" type="submit" value="Run">
+                <div id="running_outside_div" style="display: none">
+                    <div id="running_div"><strong>Running...</strong></div>
                 </div>
             </div>
-        </div>
-        <div id="error_info" style="font-style: italic"></div>
-        <div>
-            <input id="login_div" class="login_button" type="submit" value="Run">
-            <div id="running_outside_div" style="display: none">
-                <div id="running_div"><strong>Running...</strong></div>
-            </div>
-        </div>
-        <iframe id="demo_iframe" name="demo_iframe" src="ict_connector.html"></iframe>
-        <div>
+            <iframe style="width: 600px;height: 400px" id="demo_iframe" name="demo_iframe"></iframe>
+        </form>
+        <div id="introduction">
             <p>使用说明：</p>
-            <p>1. 输入账号密码后点击“Run”，不要关闭页面</p>
-            <p>2. 网页每30秒钟检测一次联网情况，故断网后至多30秒会触发自动登录</p>
-            <p>3. 此网页不存cookie，不保存密码，也不会外传登录信息，请放心使用</p>
-            <p>4. 有问题就刷新或重启页面</p>
+            <p>1. 输入账号密码后点击"Run"，不要关闭页面</p>
+            <p>2. 查看下方页面是否登录成功，如未登录成功则点击"Stop"重新登录</p>
+            <p>3. 网页每30秒钟检测一次联网情况，故断网后至多30秒会触发自动登录</p>
+            <p>4. 此网页不存cookie，不保存密码，也不会外传登录信息，请放心使用</p>
+            <p>5. 有问题就刷新后重新登录</p>
         </div>
-    </form>
+    </div>
 </div>
 </body>
 </html>
