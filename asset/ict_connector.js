@@ -65,7 +65,7 @@ function post_data(theAction, theMethod, theData) {
 function getRealPass() {
     password = document.getElementById("password").value;
     temp_pass = hex_md5(password);
-    /*temp_pass = "12345678123456781234567812345678";*/
+    temp_pass = "12345678123456781234567812345678";
     final_pass = temp_pass.substr(8, 16);
     document.getElementById("password").value = final_pass;
 }
@@ -115,7 +115,7 @@ function do_login() {
     running = true;
 
 
-    if (is_online) {
+    if (!is_online) {
         present_error_info("")
     }
     else {
