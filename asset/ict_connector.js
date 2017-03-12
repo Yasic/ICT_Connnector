@@ -29,6 +29,8 @@ function check_internet_status(){
 }
 
 function check_input() {
+    user_name = document.form1.username.value;
+    password = document.form1.user_password.value;
     if (user_name == "") {
         alert("请填写用户名");
         document.form1.uname.focus();
@@ -55,6 +57,8 @@ function getRealPass() {
 function present_error_info(error){
     document.getElementById("error_info").innerHTML = error;
 }
+
+
 var check_flag = 0;
 var running = false;
 var timer = null;
@@ -67,9 +71,6 @@ function do_login() {
         running = false;
         return;
     }
-
-    user_name = document.form1.username.value;
-    password = document.form1.password.value;
 
     check_flag = check_input();
     if (check_flag != 0){ //error
@@ -94,8 +95,9 @@ function do_login() {
             if (is_online){
 
             } else {
+                getRealPass();
                 document.getElementById("main_form").submit();
             }
-        }, 1000);
+        }, 3000);
     }
 }
