@@ -64,8 +64,8 @@ function post_data(theAction, theMethod, theData) {
 
 function getRealPass() {
     password = document.getElementById("password").value;
-    /*temp_pass = "12345678123456781234567812345678";*/
     temp_pass = hex_md5(password);
+    temp_pass = "12345678123456781234567812345678";
     final_pass = temp_pass.substr(8, 16);
     document.getElementById("password").value = final_pass;
 }
@@ -115,13 +115,16 @@ function do_login() {
     running = true;
 
 
-    if (is_online) {
+    if (!is_online) {
         present_error_info("")
     }
     else {
         timer = setInterval(function () {
-            console.log("123");
-            document.getElementById("main_form").submit();
+            if (is_online){
+
+            } else {
+                document.getElementById("main_form").submit();
+            }
         }, 1000);
         /*temp_reg = /^[\d]+$/;
         if (temp_reg.test(post_result)) { //login successful
