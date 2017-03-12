@@ -63,8 +63,9 @@ function post_data(theAction, theMethod, theData) {
 }
 
 function getRealPass() {
-    temp_pass = hex_md5(password);
+    password = document.getElementById("password").value;
     /*temp_pass = "12345678123456781234567812345678";*/
+    temp_pass = hex_md5(password);
     final_pass = temp_pass.substr(8, 16);
     document.getElementById("password").value = final_pass;
 }
