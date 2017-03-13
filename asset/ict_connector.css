@@ -7,14 +7,12 @@ body,h1,h2,h3,h4,h5,h6{
     background: #000;
     color: #f7f8f3;
     text-align: center;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    font-size: 36px;
 }
 
 #presenter_img {
-    margin-left: auto;
-    margin-right: auto;
-    width: 120px;
+    text-align: center;
+    width: 100%;
 }
 
 #check_internet_img{
@@ -41,7 +39,7 @@ body,h1,h2,h3,h4,h5,h6{
     color:#f7f8f3;
     cursor: pointer;
     background: #000;
-    width: 600px;
+    width: 100%;
     height:32px;
     line-height: 32px;
     text-align: center;
@@ -49,6 +47,11 @@ body,h1,h2,h3,h4,h5,h6{
 
 #login_div:hover{
     border: solid #0071bc 2px;
+}
+
+#demo_iframe {
+    width: 100%;
+    height: 300px;
 }
 
 .login_button {
@@ -84,26 +87,15 @@ body,h1,h2,h3,h4,h5,h6{
 }
 
 .outside_div{
-    width: 600px;
+    width: 100%;
     height: 40px;
-}
-
-.inside_div_left {
-    float: left;
-    width: 100px;
-}
-
-.inside_div_right{
-    float: left;
-    margin-left: 15px;
 }
 
 .input{
     height: 22px;
-    width: 255px;
+    width: 100%;
 }
 
 #introduction {
     float: left;
-    margin-left: 36px;
 }
