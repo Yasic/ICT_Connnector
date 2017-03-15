@@ -45,7 +45,7 @@ function do_login() {
 }
 
 function submitForm() {
-    if (is_online) {
+    if (!is_online) {
         setRealPass();
         document.getElementById("main_form").submit();
     }
